@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Math Worksheet Generator for students of all grades. Practice math problems tailored to your grade level.">
+    <meta name="keywords" content="math worksheet, math problems, grade level math, math practice, free math tool">
+    <meta name="author" content="Math Worksheet Tool">
+    <title>Math Worksheet Generator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .grade-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grade-selector label {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .grade-selector select, .grade-selector button {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .grade-selector select {
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .grade-selector button {
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        .grade-selector button:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        .advertisement {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .worksheet {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .worksheet h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #4CAF50;
+        }
+
+        #worksheet-content {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        #worksheet-content p {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .grade-selector select, .grade-selector button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .worksheet h2 {
+                font-size: 1.5rem;
+            }
+
+            #worksheet-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Math Worksheet Generator</h1>
+        <p>Select your grade level to generate customized math problems.</p>
+    </header>
+
+    <main>
+        <section class="grade-selector">
+            <label for="grade">Select Grade:</label>
+            <select id="grade">
+                <option value="1">Grade 1</option>
+                <option value="2">Grade 2</option>
+                <option value="3">Grade 3</option>
+                <option value="4">Grade 4</option>
+                <option value="5">Grade 5</option>
+            </select>
+            <button id="generate-btn">Generate Worksheet</button>
+        </section>
+
+        <section class="advertisement">
+            <!-- Google AdSense Advertisement -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_UNIT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <section class="worksheet">
+            <h2>Your Math Worksheet</h2>
+            <div id="worksheet-content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Math Worksheet Generator. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('generate-btn').addEventListener('click', generateWorksheet);
+
+        function generateWorksheet() {
+            const grade = parseInt(document.getElementById('grade').value);
+            const worksheetContent = document.getElementById('worksheet-content');
+            worksheetContent.innerHTML = '';
+
+            let problems = [];
+            if (grade === 1) {
+                problems = generateGrade1Problems();
+            } else if (grade === 2) {
+                problems = generateGrade2Problems();
+            } else if (grade === 3) {
+                problems = generateGrade3Problems();
+            } else if (grade === 4) {
+                problems = generateGrade4Problems();
+            } else if (grade === 5) {
+                problems = generateGrade5Problems();
+            }
+
+            problems.forEach(problem => {
+                const problemElement = document.createElement('p');
+                problemElement.textContent = problem;
+                worksheetContent.appendChild(problemElement);
+            });
+        }
+
+        function generateGrade1Problems() {
+            return [
+                "1 + 1 = ___",
+                "2 + 3 = ___",
+                "5 - 2 = ___",
+                "4 + 4 = ___",
+                "7 - 3 = ___"
+            ];
+        }
+
+        function generateGrade2Problems() {
+            return [
+                "10 + 5 = ___",
+                "15 - 7 = ___",
+                "8 + 9 = ___",
+                "12 - 4 = ___",
+                "6 + 7 = ___"
+            ];
+        }
+
+        function generateGrade3Problems() {
+            return [
+                "25 + 34 = ___",
+                "56 - 23 = ___",
+                "12 × 3 = ___",
+                "48 ÷ 6 = ___",
+                "17 + 29 = ___"
+            ];
+        }
+
+        function generateGrade4Problems() {
+            return [
+                "123 + 456 = ___",
+                "789 - 345 = ___",
+                "45 × 6 = ___",
+                "144 ÷ 12 = ___",
+                "234 + 567 = ___"
+            ];
+        }
+
+        function generateGrade5Problems() {
+            return [
+                "567 + 789 = ___",
+                "1000 - 456 = ___",
+                "123 × 45 = ___",
+                "900 ÷ 15 = ___",
+                "678 + 901 = ___"
+            ];
+        }
+    </script>
+</body>
+</html>
